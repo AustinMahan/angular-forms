@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="anotherApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+  </head>
+  <body ng-controller="ctrl as controller">
+    <form name="form1" novalidate ng-submit="controller.submitted()">
+      <div>
+        {{controller.allThings}}
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : form1.name.$invalid && !form1.name.$pristine, 'success' : form1.name.$valid && !form1.name.$pristine }">
+          <label>Name</label>
+          <input type="text" name="name" ng-minlength=3 ng-maxlength=20 class="form-control" ng-model="controller.name" required>
+          <p ng-show="form1.name.$invalid && !form1.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : form1.password.$invalid && !form1.password.$pristine, 'success' : form1.password.$valid && !form1.password.$pristine}">
+        <label>Password</label>
+        <input type="text" name="password" ng-minlength=3 ng-maxlength=20 class="form-control" ng-model="controller.password" required>
+        <p ng-show="form1.password.$invalid && !form1.password.$pristine">Enter vaild password</p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : form1.email.$invalid && !form1.email.$pristine, 'success' : form1.email.$valid && !form1.email.$pristine }">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" ng-model="controller.email" required>
+        <p ng-show="form1.email.$invalid && !form1.email.$pristine">Enter vaild email</p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : form1.zip.$invalid && !form1.zip.$pristine, 'success' : form1.zip.$valid && !form1.zip.$pristine}">
+        <label>Zip</label>
+        <input type="number" ng-minlength=5 ng-maxlength=5 name="zip" class="form-control" ng-model="controller.zip" required>
+        <p ng-show="form1.zip.$invalid && !form1.zip.$pristine">Enter vaild zip</p>
+      </div>
+      <button type="submit" ng-disabled="form1.$invalid">Submit</button>
+    </form>
+  </body>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script type="text/javascript" src='main.js'></script>
+</html>

@@ -1,0 +1,19 @@
+.has-error{
+  color: red;
+}
+.has-error input:focus{
+  outline: red outset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.success {
+  color: green;
+}
+.success input:focus{
+  outline: green outset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
